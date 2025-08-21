@@ -11,7 +11,7 @@ export const Actions = () => {
 
   return (
     <>
-      <Card>
+      <Card className="bg-primary/5 border-primary/20 ring-1 ring-primary/10">
         <CardHeader>
           <CardTitle>Actions</CardTitle>
           <p className="text-sm text-muted-foreground">

@@ -52,7 +52,7 @@ export const ExchangeRates = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <TrendingUp className="w-5 h-5" />
-          Live Exchange Rates
+          Exchange Rates
         </CardTitle>
         <p className="text-sm text-muted-foreground">
           Rates for converting UAC to platform credits.

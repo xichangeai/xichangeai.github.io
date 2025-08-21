@@ -1,4 +1,4 @@
-import { Coins, Plus, CreditCard } from "lucide-react";
+import { Wallet, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
@@ -17,7 +17,7 @@ export const WalletBalance = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
-                <Coins className="w-6 h-6 text-primary" />
+                <Wallet className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
@@ -36,7 +36,6 @@ export const WalletBalance = () => {
                 onClick={() => setShowTopUp(true)}
                 className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg"
               >
-                <Plus className="w-4 h-4 mr-2" />
                 Top Up
               </Button>
               <Button 

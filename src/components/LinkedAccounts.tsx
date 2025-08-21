@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, FileText, Image, Brain, Zap, Users, Link, Unlink } from "lucide-react";
+import { MessageCircle, FileText, Image, Brain, Zap, Github, Link, Unlink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +11,7 @@ const AI_PLATFORMS = [
     name: 'Lovable',
     credits: 120,
     connected: true,
-    icon: Heart,
+    icon: MessageCircle,
     color: 'text-red-500',
     description: 'Code generation platform'
   },
@@ -35,16 +35,16 @@ const AI_PLATFORMS = [
   },
   {
     id: 'openai',
-    name: 'OpenAI',
+    name: 'ChatGPT',
     credits: 50,
     connected: true,
-    icon: Brain,
+    icon: MessageCircle,
     color: 'text-green-500',
     description: 'GPT & AI models'
   },
   {
     id: 'anthropic',
-    name: 'Anthropic',
+    name: 'Claude',
     credits: 75,
     connected: true,
     icon: Zap,
@@ -56,7 +56,7 @@ const AI_PLATFORMS = [
     name: 'Hugging Face',
     credits: 0,
     connected: false,
-    icon: Users,
+    icon: Github,
     color: 'text-yellow-500',
     description: 'ML model hub'
   }

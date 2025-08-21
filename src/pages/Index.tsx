@@ -14,8 +14,8 @@ const Index = () => {
           {/* Left Column - Wallet & Actions */}
           <div className="lg:col-span-2 space-y-8">
             <WalletBalance />
-            <LinkedAccounts />
             <Actions />
+            <LinkedAccounts />
           </div>
           
           {/* Right Column - Exchange Rates */}
