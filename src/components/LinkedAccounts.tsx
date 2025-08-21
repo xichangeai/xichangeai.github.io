@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { MessageCircle, FileText, Image, Brain, Zap, Github, Link, Unlink } from "lucide-react";
+import { Link, Unlink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import chatgptLogo from "@/assets/chatgpt-logo.png";
+import claudeLogo from "@/assets/claude-logo.png";
+import midjourneyLogo from "@/assets/midjourney-logo.png";
+import huggingfaceLogo from "@/assets/huggingface-logo.png";
+import lovableLogo from "@/assets/lovable-logo.png";
+import manusLogo from "@/assets/manus-logo.png";
 
 const AI_PLATFORMS = [
   {
@@ -11,7 +17,7 @@ const AI_PLATFORMS = [
     name: 'Lovable',
     credits: 120,
     connected: true,
-    icon: MessageCircle,
+    logo: lovableLogo,
     color: 'text-red-500',
     description: 'Code generation platform'
   },
@@ -20,7 +26,7 @@ const AI_PLATFORMS = [
     name: 'Manus.ai',
     credits: 300,
     connected: true,
-    icon: FileText,
+    logo: manusLogo,
     color: 'text-blue-500',
     description: 'Document AI assistant'
   },
@@ -29,7 +35,7 @@ const AI_PLATFORMS = [
     name: 'Midjourney',
     credits: 0,
     connected: false,
-    icon: Image,
+    logo: midjourneyLogo,
     color: 'text-purple-500',
     description: 'AI image generation'
   },
@@ -38,7 +44,7 @@ const AI_PLATFORMS = [
     name: 'ChatGPT',
     credits: 50,
     connected: true,
-    icon: MessageCircle,
+    logo: chatgptLogo,
     color: 'text-green-500',
     description: 'GPT & AI models'
   },
@@ -47,7 +53,7 @@ const AI_PLATFORMS = [
     name: 'Claude',
     credits: 75,
     connected: true,
-    icon: Zap,
+    logo: claudeLogo,
     color: 'text-orange-500',
     description: 'Claude AI assistant'
   },
@@ -56,7 +62,7 @@ const AI_PLATFORMS = [
     name: 'Hugging Face',
     credits: 0,
     connected: false,
-    icon: Github,
+    logo: huggingfaceLogo,
     color: 'text-yellow-500',
     description: 'ML model hub'
   }
@@ -96,7 +102,6 @@ export const LinkedAccounts = () => {
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {platforms.map((platform) => {
-            const IconComponent = platform.icon;
             return (
               <Card 
                 key={platform.id} 
@@ -107,8 +112,12 @@ export const LinkedAccounts = () => {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center ${platform.color}`}>
-                        <IconComponent className="w-4 h-4" />
+                      <div className="w-8 h-8 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center">
+                        <img 
+                          src={platform.logo} 
+                          alt={`${platform.name} logo`}
+                          className="w-6 h-6 object-contain"
+                        />
                       </div>
                       <div>
                         <h3 className="font-medium">{platform.name}</h3>

@@ -1,4 +1,4 @@
-import { Wallet, CreditCard } from "lucide-react";
+import { Wallet, CreditCard, Coins } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
@@ -21,7 +21,7 @@ export const WalletBalance = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                  <CreditCard className="w-5 h-5 text-muted-foreground" />
+                  <Coins className="w-5 h-5 text-muted-foreground" />
                   Wallet Balance
                 </h3>
                 <p className="text-sm text-muted-foreground">Universal AI Credit</p>

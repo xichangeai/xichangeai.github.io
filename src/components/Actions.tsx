@@ -23,7 +23,7 @@ export const Actions = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-16 flex-col gap-2 hover:bg-primary/10 hover:border-primary/30"
+              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-primary-foreground hover:bg-primary/25 hover:border-primary/50"
               onClick={() => setShowExchange(true)}
             >
               <ArrowRightLeft className="w-5 h-5" />
@@ -33,7 +33,7 @@ export const Actions = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-16 flex-col gap-2 hover:bg-primary/10 hover:border-primary/30"
+              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-primary-foreground hover:bg-primary/25 hover:border-primary/50"
               onClick={() => setShowSend(true)}
             >
               <Send className="w-5 h-5" />
