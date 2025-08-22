@@ -50,7 +50,7 @@ export const ExchangeRates = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <CardTitle className="flex items-center gap-2 text-xl font-bold">
           <TrendingUp className="w-5 h-5" />
           Exchange Rates
         </CardTitle>

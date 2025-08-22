@@ -17,11 +17,11 @@ export const WalletBalance = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
-                <Wallet className="w-6 h-6 text-primary" />
+                <Coins className="w-7 h-7 text-primary" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                  <Coins className="w-5 h-5 text-muted-foreground" />
+                  <Wallet className="w-4 h-4 text-muted-foreground" />
                   Wallet Balance
                 </h3>
                 <p className="text-sm text-muted-foreground">Universal AI Credit</p>

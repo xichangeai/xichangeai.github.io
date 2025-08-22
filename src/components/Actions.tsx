@@ -23,20 +23,20 @@ export const Actions = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-primary-foreground hover:bg-primary/25 hover:border-primary/50"
+              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-white hover:bg-primary/25 hover:border-primary/50 hover:text-white"
               onClick={() => setShowExchange(true)}
             >
-              <ArrowRightLeft className="w-5 h-5" />
+              <ArrowRightLeft className="w-5 h-5 text-white" />
               Exchange Credits
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-primary-foreground hover:bg-primary/25 hover:border-primary/50"
+              className="h-16 flex-col gap-2 bg-primary/15 border-primary/40 text-white hover:bg-primary/25 hover:border-primary/50 hover:text-white"
               onClick={() => setShowSend(true)}
             >
-              <Send className="w-5 h-5" />
+              <Send className="w-5 h-5 text-white" />
               Send Credits
             </Button>
           </div>

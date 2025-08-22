@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link, Unlink } from "lucide-react";
+import { Link, Unlink, Plus, Search } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import chatgptLogo from "@/assets/chatgpt-logo.png";
 import claudeLogo from "@/assets/claude-logo.png";
@@ -68,8 +70,19 @@ const AI_PLATFORMS = [
   }
 ];
 
+const ADDITIONAL_PLATFORMS = [
+  { id: 'perplexity', name: 'Perplexity AI', description: 'AI search engine' },
+  { id: 'replicate', name: 'Replicate', description: 'Run AI models' },
+  { id: 'cohere', name: 'Cohere', description: 'NLP platform' },
+  { id: 'stability', name: 'Stability AI', description: 'Stable Diffusion' },
+  { id: 'runway', name: 'Runway ML', description: 'Creative AI tools' },
+  { id: 'elevenlabs', name: 'ElevenLabs', description: 'AI voice generation' },
+];
+
 export const LinkedAccounts = () => {
   const [platforms, setPlatforms] = useState(AI_PLATFORMS);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleConnect = (platformId: string) => {
     setPlatforms(prev => prev.map(platform => 
@@ -91,12 +104,45 @@ export const LinkedAccounts = () => {
     toast.success(`Disconnected from ${platform?.name}`);
   };
 
+  const handleAddPlatform = (platformId: string) => {
+    const additionalPlatform = ADDITIONAL_PLATFORMS.find(p => p.id === platformId);
+    if (additionalPlatform) {
+      const newPlatform = {
+        ...additionalPlatform,
+        credits: Math.floor(Math.random() * 100) + 10,
+        connected: true,
+        logo: '',
+        color: 'text-primary'
+      };
+      setPlatforms(prev => [...prev, newPlatform]);
+      toast.success(`Successfully added ${additionalPlatform.name}!`);
+      setShowAddModal(false);
+      setSearchQuery("");
+    }
+  };
+
+  const filteredAdditionalPlatforms = ADDITIONAL_PLATFORMS.filter(platform =>
+    platform.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+    !platforms.some(p => p.id === platform.id)
+  );
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Link className="w-5 h-5" />
-          Linked Accounts
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Link className="w-5 h-5" />
+            Linked Accounts
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => setShowAddModal(true)}
+            className="flex items-center gap-2"
+          >
+            <Plus className="w-4 h-4" />
+            Add Account
+          </Button>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -167,6 +213,47 @@ export const LinkedAccounts = () => {
           })}
         </div>
       </CardContent>
+
+      <Dialog open={showAddModal} onOpenChange={setShowAddModal}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Add AI Platform Account</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search AI platforms..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <div className="max-h-60 overflow-y-auto space-y-2">
+              {filteredAdditionalPlatforms.map((platform) => (
+                <div
+                  key={platform.id}
+                  className="flex items-center justify-between p-3 border rounded-lg hover:bg-accent/50 cursor-pointer"
+                  onClick={() => handleAddPlatform(platform.id)}
+                >
+                  <div>
+                    <h4 className="font-medium">{platform.name}</h4>
+                    <p className="text-sm text-muted-foreground">{platform.description}</p>
+                  </div>
+                  <Button variant="ghost" size="sm">
+                    <Plus className="w-4 h-4" />
+                  </Button>
+                </div>
+              ))}
+              {filteredAdditionalPlatforms.length === 0 && (
+                <p className="text-center text-muted-foreground py-4">
+                  {searchQuery ? "No platforms found" : "All available platforms are already added"}
+                </p>
+              )}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };

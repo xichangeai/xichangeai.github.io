@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Settings, LogOut, ChevronDown } from "lucide-react";
+import { User, Settings, LogOut, ChevronDown, CreditCard } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import {
@@ -44,6 +44,13 @@ export const Header = () => {
             <DropdownMenuItem className="cursor-pointer">
               <User className="w-4 h-4 mr-3" />
               Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              <CreditCard className="w-4 h-4 mr-3" />
+              <div className="flex flex-col">
+                <span>Virtual Card</span>
+                <span className="text-xs text-muted-foreground">AI Credits Only</span>
+              </div>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               <Settings className="w-4 h-4 mr-3" />
