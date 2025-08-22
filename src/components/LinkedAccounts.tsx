@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Unlink, Plus, Search } from "lucide-react";
+import { Link, Unlink, Plus, Search, X } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,7 +19,7 @@ const AI_PLATFORMS = [
     name: 'Lovable',
     credits: 120,
     connected: true,
-    logo: lovableLogo,
+    logo: '/lovable-uploads/44305a34-78a8-4e43-be70-3547ada72d73.png',
     color: 'text-red-500',
     description: 'Code generation platform'
   },
@@ -28,7 +28,7 @@ const AI_PLATFORMS = [
     name: 'Manus.ai',
     credits: 300,
     connected: true,
-    logo: manusLogo,
+    logo: '/lovable-uploads/513f890a-040a-47be-bf88-38aab53fd643.png',
     color: 'text-blue-500',
     description: 'Document AI assistant'
   },
@@ -37,7 +37,7 @@ const AI_PLATFORMS = [
     name: 'Midjourney',
     credits: 0,
     connected: false,
-    logo: midjourneyLogo,
+    logo: '/lovable-uploads/2176bfe4-afa8-4e53-9e41-48b03a468b3b.png',
     color: 'text-purple-500',
     description: 'AI image generation'
   },
@@ -46,9 +46,18 @@ const AI_PLATFORMS = [
     name: 'ChatGPT',
     credits: 50,
     connected: true,
-    logo: chatgptLogo,
+    logo: '/lovable-uploads/3d316eb1-0ce4-48c3-8712-70bbdd842c83.png',
     color: 'text-green-500',
     description: 'GPT & AI models'
+  },
+  {
+    id: 'adobe',
+    name: 'Adobe AI',
+    credits: 25,
+    connected: true,
+    logo: '/lovable-uploads/7e1755cb-b9e8-44a5-8b77-b1f288bfed20.png',
+    color: 'text-orange-500',
+    description: 'Creative AI suite'
   },
   {
     id: 'anthropic',
@@ -77,6 +86,17 @@ const ADDITIONAL_PLATFORMS = [
   { id: 'stability', name: 'Stability AI', description: 'Stable Diffusion' },
   { id: 'runway', name: 'Runway ML', description: 'Creative AI tools' },
   { id: 'elevenlabs', name: 'ElevenLabs', description: 'AI voice generation' },
+  { id: 'jasper', name: 'Jasper AI', description: 'Content creation AI' },
+  { id: 'copy', name: 'Copy.ai', description: 'AI copywriting' },
+  { id: 'writesonic', name: 'Writesonic', description: 'AI writing assistant' },
+  { id: 'grammarly', name: 'Grammarly', description: 'AI writing enhancement' },
+  { id: 'notion', name: 'Notion AI', description: 'AI-powered workspace' },
+  { id: 'github', name: 'GitHub Copilot', description: 'AI code assistant' },
+  { id: 'adobe', name: 'Adobe Firefly', description: 'Creative AI suite' },
+  { id: 'canva', name: 'Canva AI', description: 'Design AI tools' },
+  { id: 'luma', name: 'Luma AI', description: '3D capture and AI' },
+  { id: 'synthesia', name: 'Synthesia', description: 'AI video generation' },
+  { id: 'descript', name: 'Descript', description: 'AI audio/video editing' },
 ];
 
 export const LinkedAccounts = () => {
@@ -121,6 +141,12 @@ export const LinkedAccounts = () => {
     }
   };
 
+  const handleRemove = (platformId: string) => {
+    setPlatforms(prev => prev.filter(platform => platform.id !== platformId));
+    const platform = platforms.find(p => p.id === platformId);
+    toast.success(`Removed ${platform?.name} from your accounts`);
+  };
+
   const filteredAdditionalPlatforms = ADDITIONAL_PLATFORMS.filter(platform =>
     platform.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
     !platforms.some(p => p.id === platform.id)
@@ -151,11 +177,22 @@ export const LinkedAccounts = () => {
             return (
               <Card 
                 key={platform.id} 
-                className={`transition-all duration-200 hover:shadow-md ${
+                className={`relative transition-all duration-200 hover:shadow-md ${
                   platform.connected ? 'border-primary/30 bg-primary/5' : 'border-border'
                 }`}
               >
                 <CardContent className="p-4">
+                  {platform.connected && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-2 right-2 w-6 h-6 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                      onClick={() => handleRemove(platform.id)}
+                      title="Remove account"
+                    >
+                      <X className="w-3 h-3" />
+                    </Button>
+                  )}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center">

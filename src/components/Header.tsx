@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { VirtualCardModal } from "./VirtualCardModal";
 
 export const Header = () => {
   const [user] = useState({
@@ -17,6 +18,7 @@ export const Header = () => {
     email: "john@example.com",
     initials: "JD"
   });
+  const [showVirtualCard, setShowVirtualCard] = useState(false);
 
   return (
     <header className="border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
@@ -45,7 +47,7 @@ export const Header = () => {
               <User className="w-4 h-4 mr-3" />
               Profile
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem className="cursor-pointer" onClick={() => setShowVirtualCard(true)}>
               <CreditCard className="w-4 h-4 mr-3" />
               <div className="flex flex-col">
                 <span>Virtual Card</span>
@@ -64,6 +66,8 @@ export const Header = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+
+      <VirtualCardModal open={showVirtualCard} onOpenChange={setShowVirtualCard} />
     </header>
   );
 };
