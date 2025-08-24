@@ -92,7 +92,7 @@ export const ExchangeRates = () => {
         
         <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
           <div className="text-sm text-center text-muted-foreground">
-            Exchange rates update every 15 minutes • Best rates available with Premium plans
+            Exchange rates update daily • Best rates available with Premium plans
           </div>
         </div>
       </CardContent>

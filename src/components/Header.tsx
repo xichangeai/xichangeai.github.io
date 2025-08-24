@@ -14,9 +14,9 @@ import { VirtualCardModal } from "./VirtualCardModal";
 
 export const Header = () => {
   const [user] = useState({
-    name: "John Doe",
-    email: "john@example.com",
-    initials: "JD"
+    name: "Lungelo Sigudla",
+    email: "lungelosigudla@gmail.com",
+    initials: "LS"
   });
   const [showVirtualCard, setShowVirtualCard] = useState(false);
 

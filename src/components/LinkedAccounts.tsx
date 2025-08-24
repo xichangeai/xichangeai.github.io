@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { CountdownTimer } from "./CountdownTimer";
 import chatgptLogo from "@/assets/chatgpt-logo.png";
 import claudeLogo from "@/assets/claude-logo.png";
 import midjourneyLogo from "@/assets/midjourney-logo.png";
@@ -80,6 +81,13 @@ const AI_PLATFORMS = [
 ];
 
 const ADDITIONAL_PLATFORMS = [
+  { id: 'vo', name: 'Vo', description: 'AI voice assistant' },
+  { id: 'cursor', name: 'Cursor.ai', description: 'AI code editor' },
+  { id: 'replit', name: 'Replit', description: 'Cloud development platform' },
+  { id: 'windsurf', name: 'Windsurf', description: 'AI development environment' },
+  { id: 'firebase', name: 'Firebase Studio', description: 'Google cloud platform' },
+  { id: 'bolt', name: 'Bolt.new', description: 'AI web development' },
+  { id: 'devin', name: 'Devin', description: 'AI software engineer' },
   { id: 'perplexity', name: 'Perplexity AI', description: 'AI search engine' },
   { id: 'replicate', name: 'Replicate', description: 'Run AI models' },
   { id: 'cohere', name: 'Cohere', description: 'NLP platform' },
@@ -92,7 +100,6 @@ const ADDITIONAL_PLATFORMS = [
   { id: 'grammarly', name: 'Grammarly', description: 'AI writing enhancement' },
   { id: 'notion', name: 'Notion AI', description: 'AI-powered workspace' },
   { id: 'github', name: 'GitHub Copilot', description: 'AI code assistant' },
-  { id: 'adobe', name: 'Adobe Firefly', description: 'Creative AI suite' },
   { id: 'canva', name: 'Canva AI', description: 'Design AI tools' },
   { id: 'luma', name: 'Luma AI', description: '3D capture and AI' },
   { id: 'synthesia', name: 'Synthesia', description: 'AI video generation' },
@@ -221,29 +228,32 @@ export const LinkedAccounts = () => {
                     </div>
                   )}
                   
-                  <div className="flex gap-2">
-                    {platform.connected ? (
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="flex-1 text-destructive hover:text-destructive-foreground hover:bg-destructive"
-                        onClick={() => handleDisconnect(platform.id)}
-                      >
-                        <Unlink className="w-3 h-3 mr-2" />
-                        Disconnect
-                      </Button>
-                    ) : (
-                      <Button 
-                        variant="default" 
-                        size="sm" 
-                        className="flex-1"
-                        onClick={() => handleConnect(platform.id)}
-                      >
-                        <Link className="w-3 h-3 mr-2" />
-                        Connect
-                      </Button>
-                    )}
-                  </div>
+                   <div className="flex gap-2 flex-col">
+                     {platform.connected ? (
+                       <>
+                         <Button 
+                           variant="outline" 
+                           size="sm" 
+                           className="flex-1 text-destructive hover:text-destructive-foreground hover:bg-destructive"
+                           onClick={() => handleDisconnect(platform.id)}
+                         >
+                           <Unlink className="w-3 h-3 mr-2" />
+                           Disconnect
+                         </Button>
+                         <CountdownTimer resetHour={0} />
+                       </>
+                     ) : (
+                       <Button 
+                         variant="default" 
+                         size="sm" 
+                         className="flex-1"
+                         onClick={() => handleConnect(platform.id)}
+                       >
+                         <Link className="w-3 h-3 mr-2" />
+                         Connect
+                       </Button>
+                     )}
+                   </div>
                 </CardContent>
               </Card>
             );
