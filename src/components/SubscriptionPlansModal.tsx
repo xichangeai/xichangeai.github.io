@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Crown, Check, Zap, Star, ArrowRight } from "lucide-react";
+import { Briefcase, Check, Laptop, Building, ArrowRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -16,7 +16,7 @@ const SUBSCRIPTION_PLANS = [
   {
     id: 'basic',
     name: 'Basic',
-    price: 9.99,
+    price: 19.99,
     credits: 100,
     features: [
       '100 UAC credits per month',
@@ -24,13 +24,13 @@ const SUBSCRIPTION_PLANS = [
       'Standard support',
       'Basic exchange rates'
     ],
-    icon: Zap,
+    icon: Laptop,
     color: 'text-blue-500'
   },
   {
     id: 'premium',
     name: 'Premium',
-    price: 19.99,
+    price: 149.99,
     credits: 250,
     features: [
       '250 UAC credits per month',
@@ -39,14 +39,14 @@ const SUBSCRIPTION_PLANS = [
       'Better exchange rates',
       'Advanced analytics'
     ],
-    icon: Star,
+    icon: Building,
     color: 'text-primary',
     popular: true
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: 49.99,
+    price: 999,
     credits: 750,
     features: [
       '750 UAC credits per month',
@@ -57,7 +57,7 @@ const SUBSCRIPTION_PLANS = [
       'Custom integrations',
       'Team management'
     ],
-    icon: Crown,
+    icon: Briefcase,
     color: 'text-amber-500',
     premium: true
   }
@@ -83,7 +83,7 @@ export const SubscriptionPlansModal = ({ open, onOpenChange }: SubscriptionPlans
         <DialogContent className="sm:max-w-[800px]">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-xl">
-              <Crown className="w-6 h-6 text-primary" />
+              <Briefcase className="w-6 h-6 text-primary" />
               Choose Your Plan
             </DialogTitle>
             <DialogDescription>
