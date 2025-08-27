@@ -56,7 +56,7 @@ const AI_PLATFORMS = [
     name: 'Adobe AI',
     credits: 25,
     connected: true,
-    logo: '/lovable-uploads/7e1755cb-b9e8-44a5-8b77-b1f288bfed20.png',
+    logo: claudeLogo,
     color: 'text-orange-500',
     description: 'Creative AI suite'
   },
@@ -65,7 +65,7 @@ const AI_PLATFORMS = [
     name: 'Claude',
     credits: 75,
     connected: true,
-    logo: claudeLogo,
+    logo: '/lovable-uploads/7e1755cb-b9e8-44a5-8b77-b1f288bfed20.png',
     color: 'text-orange-500',
     description: 'Claude AI assistant'
   },
@@ -81,7 +81,7 @@ const AI_PLATFORMS = [
 ];
 
 const ADDITIONAL_PLATFORMS = [
-  { id: 'vo', name: 'Vo', description: 'AI voice assistant' },
+  { id: 'vo', name: 'Vo', description: 'AI assistant to design' },
   { id: 'cursor', name: 'Cursor.ai', description: 'AI code editor' },
   { id: 'replit', name: 'Replit', description: 'Cloud development platform' },
   { id: 'windsurf', name: 'Windsurf', description: 'AI development environment' },
@@ -89,7 +89,7 @@ const ADDITIONAL_PLATFORMS = [
   { id: 'bolt', name: 'Bolt.new', description: 'AI web development' },
   { id: 'devin', name: 'Devin', description: 'AI software engineer' },
   { id: 'perplexity', name: 'Perplexity AI', description: 'AI search engine' },
-  { id: 'replicate', name: 'Replicate', description: 'Run AI models' },
+  
   { id: 'cohere', name: 'Cohere', description: 'NLP platform' },
   { id: 'stability', name: 'Stability AI', description: 'Stable Diffusion' },
   { id: 'runway', name: 'Runway ML', description: 'Creative AI tools' },
