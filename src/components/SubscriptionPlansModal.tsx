@@ -17,9 +17,9 @@ const SUBSCRIPTION_PLANS = [
     id: 'basic',
     name: 'Basic',
     price: 19.99,
-    credits: 100,
+    credits: 250,
     features: [
-      '100 UAC credits per month',
+      '250 UAC credits per month',
       'Access to 3 AI platforms',
       'Standard support',
       'Basic exchange rates'
@@ -31,9 +31,9 @@ const SUBSCRIPTION_PLANS = [
     id: 'premium',
     name: 'Premium',
     price: 149.99,
-    credits: 250,
+    credits: 2200,
     features: [
-      '250 UAC credits per month',
+      '2,200 UAC credits per month',
       'Access to all AI platforms',
       'Priority support',
       'Better exchange rates',
@@ -47,9 +47,9 @@ const SUBSCRIPTION_PLANS = [
     id: 'enterprise',
     name: 'Enterprise',
     price: 999,
-    credits: 750,
+    credits: 18000,
     features: [
-      '750 UAC credits per month',
+      '18,000 UAC credits per month',
       'Unlimited platform access',
       'Dedicated support',
       'Best exchange rates',
