@@ -1,4 +1,4 @@
-import { TrendingUp, Heart, FileText, Image, Brain, Zap, Users } from "lucide-react";
+import { TrendingUp, Heart, FileText, Image, Brain, Sparkles, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const EXCHANGE_RATES = [
@@ -32,7 +32,7 @@ const EXCHANGE_RATES = [
   },
   {
     platform: 'Anthropic',
-    icon: Zap,
+    icon: Sparkles,
     color: 'text-orange-500',
     rate: 1.10,
     description: 'Claude AI'
