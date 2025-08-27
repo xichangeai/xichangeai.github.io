@@ -56,7 +56,7 @@ const AI_PLATFORMS = [
     name: 'Adobe AI',
     credits: 25,
     connected: true,
-    logo: claudeLogo,
+    logo: '/lovable-uploads/becdace4-5d11-4bd4-84a2-52cce5260093.png',
     color: 'text-orange-500',
     description: 'Creative AI suite'
   },
