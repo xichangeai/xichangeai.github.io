@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { User, Settings, LogOut, ChevronDown, CreditCard } from "lucide-react";
+import { User, Settings, LogOut, ChevronDown, CreditCard, Moon, Sun, History } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,13 +21,27 @@ export const Header = () => {
     initials: "LS"
   });
   const [showVirtualCard, setShowVirtualCard] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <header className="border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Logo />
         
-        <DropdownMenu>
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="w-9 h-9"
+          >
+            <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+
+          <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2 p-2">
               <div className="flex items-center gap-3">
@@ -47,6 +63,10 @@ export const Header = () => {
               <User className="w-4 h-4 mr-3" />
               Profile
             </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer" onClick={() => navigate("/transactions")}>
+              <History className="w-4 h-4 mr-3" />
+              Recent Transactions
+            </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer" onClick={() => setShowVirtualCard(true)}>
               <CreditCard className="w-4 h-4 mr-3" />
               <div className="flex flex-col">
@@ -64,7 +84,8 @@ export const Header = () => {
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+          </DropdownMenu>
+        </div>
       </div>
 
       <VirtualCardModal open={showVirtualCard} onOpenChange={setShowVirtualCard} />
