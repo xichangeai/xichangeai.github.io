@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { User, Settings, LogOut, ChevronDown, CreditCard, Moon, Sun, History } from "lucide-react";
 import { Logo } from "./Logo";
@@ -33,11 +34,7 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => {
-              const newTheme = theme === "light" ? "dark" : "light";
-              setTheme(newTheme);
-              document.documentElement.classList.toggle('dark');
-            }}
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className="w-9 h-9"
           >
             <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
