@@ -33,7 +33,11 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            onClick={() => {
+              const newTheme = theme === "light" ? "dark" : "light";
+              setTheme(newTheme);
+              document.documentElement.classList.toggle('dark');
+            }}
             className="w-9 h-9"
           >
             <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
