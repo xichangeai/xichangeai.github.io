@@ -172,7 +172,7 @@ export const ExchangeModal = ({ open, onOpenChange }: ExchangeModalProps) => {
 
           <Button 
             onClick={handleExchange} 
-            className="w-full" 
+            className="w-full dark:text-white" 
             size="lg"
             disabled={processing || !creditsAmount || !fromPlatform || !toPlatform || fromPlatform === toPlatform || parseFloat(creditsAmount || "0") <= 0 || parseFloat(creditsAmount || "0") > (fromPlatformData?.credits || 0)}
           >
