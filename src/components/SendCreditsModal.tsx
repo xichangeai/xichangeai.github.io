@@ -138,7 +138,7 @@ export const SendCreditsModal = ({ open, onOpenChange }: SendCreditsModalProps) 
 
           <Button 
             onClick={handleSend} 
-            className="w-full" 
+            className="w-full dark:text-white" 
             size="lg"
             disabled={processing || !recipientEmail || !amount || parseFloat(amount || "0") <= 0}
           >
