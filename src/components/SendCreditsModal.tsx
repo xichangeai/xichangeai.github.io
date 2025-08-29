@@ -50,7 +50,7 @@ export const SendCreditsModal = ({ open, onOpenChange }: SendCreditsModalProps) 
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Send className="w-5 h-5 text-primary" />
@@ -61,7 +61,7 @@ export const SendCreditsModal = ({ open, onOpenChange }: SendCreditsModalProps) 
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="space-y-4">
             <div>
               <Label htmlFor="recipient-email">Recipient Email</Label>
