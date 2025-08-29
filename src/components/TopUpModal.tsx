@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CreditCard, DollarSign, Zap } from "lucide-react";
+import { CreditCard, DollarSign, Wallet } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -44,7 +44,7 @@ export const TopUpModal = ({ open, onOpenChange }: TopUpModalProps) => {
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-primary" />
+              <Wallet className="w-5 h-5 text-primary" />
               Top Up Wallet
             </DialogTitle>
             <DialogDescription>
@@ -124,7 +124,7 @@ export const TopUpModal = ({ open, onOpenChange }: TopUpModalProps) => {
 
             <Button 
               onClick={handleTopUp} 
-              className="w-full" 
+              className="w-full text-black dark:text-white" 
               size="lg"
               disabled={!finalAmount || finalAmount < 1}
             >
