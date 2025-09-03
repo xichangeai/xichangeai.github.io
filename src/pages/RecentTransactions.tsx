@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ArrowLeft, ArrowUpRight, ArrowDownRight, CreditCard, Repeat, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -101,29 +100,8 @@ const getStatusColor = (status: Transaction['status']) => {
 };
 
 const RecentTransactions = () => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!loading && !user) {
-      navigate('/auth');
-    }
-  }, [user, loading, navigate]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-muted-foreground">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return null; // Will redirect to auth
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -134,7 +112,9 @@ const RecentTransactions = () => {
           </Button>
           <div>
             <h1 className="text-2xl font-bold">Recent Transactions</h1>
-            <p className="text-muted-foreground">Your latest transaction history</p>
+            <p className="text-muted-foreground">
+              {user ? "Your latest transaction history" : "Transaction history (login to see your personal transactions)"}
+            </p>
           </div>
         </div>
 
@@ -142,7 +122,7 @@ const RecentTransactions = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="w-5 h-5" />
-              Last 5 Transactions
+              {user ? "Last 5 Transactions" : "Sample Transactions"}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">

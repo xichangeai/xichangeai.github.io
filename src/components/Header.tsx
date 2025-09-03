@@ -15,11 +15,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { VirtualCardModal } from "./VirtualCardModal";
+import { AuthModal } from "./AuthModal";
 
 export const Header = () => {
   const { user, signOut, loading } = useAuth();
   const [profile, setProfile] = useState<{ full_name?: string; email?: string } | null>(null);
   const [showVirtualCard, setShowVirtualCard] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
 
@@ -36,7 +38,6 @@ export const Header = () => {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/auth');
   };
 
   return (
@@ -104,15 +105,27 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button onClick={() => navigate('/auth')} className="flex items-center gap-2">
-              <LogIn className="w-4 h-4" />
-              Sign In
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-2">
+                  <User className="w-4 h-4" />
+                  Account
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <LogIn className="w-4 h-4 mr-3" />
+                  Sign In / Sign Up
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           )}
         </div>
       </div>
 
       <VirtualCardModal open={showVirtualCard} onOpenChange={setShowVirtualCard} />
+      <AuthModal open={showAuth} onOpenChange={setShowAuth} />
     </header>
   );
 };
