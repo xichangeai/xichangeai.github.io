@@ -113,7 +113,7 @@ export const Header = () => {
                   <ChevronDown className="w-4 h-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
                   <LogIn className="w-4 h-4 mr-3" />
                   Sign In
@@ -123,6 +123,21 @@ export const Header = () => {
                   Create Account
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <User className="w-4 h-4 mr-3" />
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <History className="w-4 h-4 mr-3" />
+                  Recent Transactions
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <CreditCard className="w-4 h-4 mr-3" />
+                  <div className="flex flex-col">
+                    <span>Virtual Card</span>
+                    <span className="text-xs text-muted-foreground">AI Credits Only</span>
+                  </div>
+                </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   <Settings className="w-4 h-4 mr-3" />
                   Settings
