@@ -115,15 +115,6 @@ export const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
-                  <LogIn className="w-4 h-4 mr-3" />
-                  Sign In
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
-                  <User className="w-4 h-4 mr-3" />
-                  Create Account
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
                   <User className="w-4 h-4 mr-3" />
                   Profile
                 </DropdownMenuItem>
@@ -141,6 +132,15 @@ export const Header = () => {
                 <DropdownMenuItem className="cursor-pointer">
                   <Settings className="w-4 h-4 mr-3" />
                   Settings
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <LogIn className="w-4 h-4 mr-3" />
+                  Sign In
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowAuth(true)}>
+                  <User className="w-4 h-4 mr-3" />
+                  Create Account
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
