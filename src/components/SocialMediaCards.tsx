@@ -1,0 +1,102 @@
+import { ExternalLink, Users, MessageCircle, Share2, Heart } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
+export const SocialMediaCards = () => {
+  const socialPlatforms = [
+    {
+      name: "Twitter",
+      handle: "@aiCreditsApp",
+      followers: "12.5K",
+      description: "Latest updates and AI news",
+      color: "bg-blue-500",
+      icon: MessageCircle,
+      url: "#"
+    },
+    {
+      name: "Discord",
+      handle: "AI Credits Community",
+      members: "5.2K",
+      description: "Join our community discussions",
+      color: "bg-indigo-500",
+      icon: Users,
+      url: "#"
+    },
+    {
+      name: "LinkedIn",
+      handle: "AI Credits",
+      connections: "8.1K",
+      description: "Professional AI insights",
+      color: "bg-blue-600",
+      icon: Share2,
+      url: "#"
+    },
+    {
+      name: "Instagram",
+      handle: "@aicredits",
+      followers: "3.8K",
+      description: "Visual AI content & tips",
+      color: "bg-pink-500",
+      icon: Heart,
+      url: "#"
+    }
+  ];
+
+  return (
+    <section className="space-y-6">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold mb-2">Connect With Us</h2>
+        <p className="text-muted-foreground">Stay updated with the latest AI news and community updates</p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {socialPlatforms.map((platform) => {
+          const Icon = platform.icon;
+          return (
+            <Card key={platform.name} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <div className={`w-10 h-10 rounded-full ${platform.color} flex items-center justify-center`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() => window.open(platform.url, '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </Button>
+                </div>
+                <CardTitle className="text-lg">{platform.name}</CardTitle>
+                <p className="text-sm text-muted-foreground">{platform.handle}</p>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">
+                    {platform.name === "Discord" ? "Members" : platform.name === "LinkedIn" ? "Connections" : "Followers"}
+                  </span>
+                  <Badge variant="secondary" className="font-semibold">
+                    {platform.name === "Discord" ? platform.members : 
+                     platform.name === "LinkedIn" ? platform.connections : platform.followers}
+                  </Badge>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {platform.description}
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  onClick={() => window.open(platform.url, '_blank')}
+                >
+                  Follow
+                </Button>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </section>
+  );
+};

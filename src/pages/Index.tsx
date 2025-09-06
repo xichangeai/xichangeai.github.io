@@ -3,6 +3,7 @@ import { WalletBalance } from "@/components/WalletBalance";
 import { LinkedAccounts } from "@/components/LinkedAccounts";
 import { ExchangeRates } from "@/components/ExchangeRates";
 import { Actions } from "@/components/Actions";
+import { SocialMediaCards } from "@/components/SocialMediaCards";
 
 const Index = () => {
 
@@ -23,6 +24,11 @@ const Index = () => {
           <div className="lg:col-span-1">
             <ExchangeRates />
           </div>
+        </div>
+        
+        {/* Social Media Cards Section */}
+        <div className="mt-16">
+          <SocialMediaCards />
         </div>
       </main>
     </div>
