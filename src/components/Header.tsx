@@ -16,12 +16,14 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { VirtualCardModal } from "./VirtualCardModal";
 import { AuthModal } from "./AuthModal";
+import { SettingsModal } from "./SettingsModal";
 
 export const Header = () => {
   const { user, signOut, loading } = useAuth();
   const [profile, setProfile] = useState<{ full_name?: string; email?: string } | null>(null);
   const [showVirtualCard, setShowVirtualCard] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
 
@@ -93,7 +95,7 @@ export const Header = () => {
                     <span className="text-xs text-muted-foreground">AI Credits Only</span>
                   </div>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowSettings(true)}>
                   <Settings className="w-4 h-4 mr-3" />
                   Settings
                 </DropdownMenuItem>
@@ -129,7 +131,7 @@ export const Header = () => {
                     <span className="text-xs text-muted-foreground">AI Credits Only</span>
                   </div>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setShowSettings(true)}>
                   <Settings className="w-4 h-4 mr-3" />
                   Settings
                 </DropdownMenuItem>
@@ -150,6 +152,7 @@ export const Header = () => {
 
       <VirtualCardModal open={showVirtualCard} onOpenChange={setShowVirtualCard} />
       <AuthModal open={showAuth} onOpenChange={setShowAuth} />
+      <SettingsModal open={showSettings} onOpenChange={setShowSettings} />
     </header>
   );
 };
