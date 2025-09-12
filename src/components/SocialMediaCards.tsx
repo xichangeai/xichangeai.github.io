@@ -77,34 +77,23 @@ export const SocialMediaCards = () => {
         <p className="text-muted-foreground">Stay updated with the latest AI news and community updates</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
         {socialPlatforms.map((platform) => {
           const Icon = platform.icon;
           return (
             <Card key={platform.name} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className={`w-10 h-10 rounded-full ${platform.color} flex items-center justify-center`}>
-                    <Icon className="w-5 h-5 text-white" />
+              <CardHeader className="pb-2 p-4">
+                <div className="flex flex-col items-center text-center">
+                  <div className={`w-8 h-8 rounded-full ${platform.color} flex items-center justify-center mb-2`}>
+                    <Icon className="w-4 h-4 text-white" />
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => window.open(platform.url, '_blank')}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
+                  <CardTitle className="text-sm font-semibold">{platform.name}</CardTitle>
                 </div>
-                <CardTitle className="text-lg">{platform.name}</CardTitle>
-                <p className="text-sm text-muted-foreground">{platform.handle}</p>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground">
-                  {platform.description}
-                </p>
+              <CardContent className="p-4 pt-0">
                 <Button 
                   variant="outline" 
+                  size="sm"
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                   onClick={() => window.open(platform.url, '_blank')}
                 >
