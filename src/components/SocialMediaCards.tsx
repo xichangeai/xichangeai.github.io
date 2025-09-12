@@ -1,23 +1,20 @@
-import { ExternalLink, Users, MessageCircle, Share2, Heart } from "lucide-react";
+import { ExternalLink, Users, MessageCircle, Briefcase, Camera, Globe, Play, Music, MessageSquare } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 export const SocialMediaCards = () => {
   const socialPlatforms = [
     {
-      name: "Twitter",
-      handle: "@aiCreditsApp",
-      followers: "12.5K",
+      name: "X",
+      handle: "@aicreditsapp",
       description: "Latest updates and AI news",
-      color: "bg-blue-500",
+      color: "bg-black",
       icon: MessageCircle,
       url: "#"
     },
     {
       name: "Discord",
       handle: "AI Credits Community",
-      members: "5.2K",
       description: "Join our community discussions",
       color: "bg-indigo-500",
       icon: Users,
@@ -26,19 +23,49 @@ export const SocialMediaCards = () => {
     {
       name: "LinkedIn",
       handle: "AI Credits",
-      connections: "8.1K",
       description: "Professional AI insights",
       color: "bg-blue-600",
-      icon: Share2,
+      icon: Briefcase,
       url: "#"
     },
     {
       name: "Instagram",
       handle: "@aicredits",
-      followers: "3.8K",
       description: "Visual AI content & tips",
       color: "bg-pink-500",
-      icon: Heart,
+      icon: Camera,
+      url: "#"
+    },
+    {
+      name: "Facebook",
+      handle: "AI Credits",
+      description: "Connect with our community",
+      color: "bg-blue-500",
+      icon: Globe,
+      url: "#"
+    },
+    {
+      name: "YouTube",
+      handle: "@aicredits",
+      description: "AI tutorials and demos",
+      color: "bg-red-500",
+      icon: Play,
+      url: "#"
+    },
+    {
+      name: "TikTok",
+      handle: "@aicredits",
+      description: "Quick AI tips and tricks",
+      color: "bg-black",
+      icon: Music,
+      url: "#"
+    },
+    {
+      name: "Reddit",
+      handle: "r/aicredits",
+      description: "Community discussions",
+      color: "bg-orange-500",
+      icon: MessageSquare,
       url: "#"
     }
   ];
@@ -73,15 +100,6 @@ export const SocialMediaCards = () => {
                 <p className="text-sm text-muted-foreground">{platform.handle}</p>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    {platform.name === "Discord" ? "Members" : platform.name === "LinkedIn" ? "Connections" : "Followers"}
-                  </span>
-                  <Badge variant="secondary" className="font-semibold">
-                    {platform.name === "Discord" ? platform.members : 
-                     platform.name === "LinkedIn" ? platform.connections : platform.followers}
-                  </Badge>
-                </div>
                 <p className="text-sm text-muted-foreground">
                   {platform.description}
                 </p>
