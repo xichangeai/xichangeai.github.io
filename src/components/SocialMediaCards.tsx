@@ -1,6 +1,7 @@
 import { ExternalLink, Users, MessageCircle, Briefcase, Camera, Globe, Play, Music, MessageSquare } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const SocialMediaCards = () => {
   const socialPlatforms = [
@@ -75,6 +76,14 @@ export const SocialMediaCards = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-2">Connect With Us</h2>
         <p className="text-muted-foreground">Stay updated with the latest AI news and community updates</p>
+        <div className="text-center">
+          <Link 
+            to="/provider-settings" 
+            className="text-sm text-primary hover:underline font-medium"
+          >
+            For AI Providers: Partner With Us
+          </Link>
+        </div>
       </div>
       
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">

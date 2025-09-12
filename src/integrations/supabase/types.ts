@@ -14,6 +14,47 @@ export type Database = {
   }
   public: {
     Tables: {
+      api_keys: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          key_hash: string
+          key_name: string
+          key_prefix: string
+          last_used_at: string | null
+          provider_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key_hash: string
+          key_name: string
+          key_prefix: string
+          last_used_at?: string | null
+          provider_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key_hash?: string
+          key_name?: string
+          key_prefix?: string
+          last_used_at?: string | null
+          provider_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "api_keys_provider_id_fkey"
+            columns: ["provider_id"]
+            isOneToOne: false
+            referencedRelation: "providers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -38,6 +79,83 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      provider_transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          description: string | null
+          id: string
+          provider_id: string
+          reference_id: string | null
+          transaction_type: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          provider_id: string
+          reference_id?: string | null
+          transaction_type: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          provider_id?: string
+          reference_id?: string | null
+          transaction_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "provider_transactions_provider_id_fkey"
+            columns: ["provider_id"]
+            isOneToOne: false
+            referencedRelation: "providers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      providers: {
+        Row: {
+          contact_email: string
+          created_at: string
+          description: string
+          id: string
+          is_active: boolean
+          logo_url: string | null
+          provider_name: string
+          updated_at: string
+          user_id: string
+          website_url: string
+        }
+        Insert: {
+          contact_email: string
+          created_at?: string
+          description: string
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          provider_name: string
+          updated_at?: string
+          user_id: string
+          website_url: string
+        }
+        Update: {
+          contact_email?: string
+          created_at?: string
+          description?: string
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          provider_name?: string
+          updated_at?: string
+          user_id?: string
+          website_url?: string
         }
         Relationships: []
       }

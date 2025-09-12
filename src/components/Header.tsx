@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { User, Settings, LogOut, ChevronDown, CreditCard, Moon, Sun, History, LogIn } from "lucide-react";
+import { User, Settings, LogOut, ChevronDown, CreditCard, Moon, Sun, History, LogIn, Key } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
@@ -94,6 +94,10 @@ export const Header = () => {
                     <span>Virtual Card</span>
                     <span className="text-xs text-muted-foreground">AI Credits Only</span>
                   </div>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => navigate("/provider-settings")}>
+                  <Key className="w-4 h-4 mr-3" />
+                  API & Provider Settings
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setShowSettings(true)}>
                   <Settings className="w-4 h-4 mr-3" />
